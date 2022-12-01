@@ -28,5 +28,3 @@ services:
       - MYSQL_DATABASE=vdt_chamada_taxista
       - MYSQL_USER=vdt_root
       - MYSQL_PASSWORD=vdtch@m@d@taxista
-volumes:
-  db-data: {}
