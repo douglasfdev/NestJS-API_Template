@@ -3,6 +3,7 @@
 **NestJS Template** é uma API que tem como objetivo, ser um template para atender qualquer situação usando NodeJS com o framework **NestJS**.
 
  * A api é construida através do framework **NestJS** que tem as dependências:
+<details><summary><b>Mostrar dependências</b></summary>
 
  ```
  @nestjs/axios
@@ -21,6 +22,8 @@
  passport-local
  typeorm
  ```
+</details>
+
 
  * A API está em construçao
  * A versão de compilação do core NestJS é a **9.0.0**
