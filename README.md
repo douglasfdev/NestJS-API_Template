@@ -1,12 +1,27 @@
-# API VDT Hub B2B
+# API NestJS Template
 
-<img src="https://user-images.githubusercontent.com/88008381/202720901-3f57e2e3-31ba-4542-a56b-7bea7d64c0f6.png"
-     align="right" alt="Size Limit logo by Vá de Táxi" width="225" height="129">
+**NestJS Template** é uma API que tem como objetivo, ser um template para atender qualquer situação usando NodeJS com o framework **NestJS**.
 
-**VDT Hub B2B** é uma API que tem como objetivo, integraçoes de empresas, fornecer os serviços Vá de Taxi para chamadas de taxistas, e interagir com o banco de dados sobre tudo relacionado a chamada de taxistas.
-Essa aplicação é feita para **Serviços de Chamar Taxi** em **NestJS**.
+ * A api é construida através do framework **NestJS** que tem as dependências:
 
- * A api é construida através do framework **NestJS** que tem diversas dependencias para garantir a soluçao do serviço.
+ ```
+ @nestjs/axios
+ @nestjs/config
+ @nestjs/jwt
+ @nestjs/passport
+ @nestjs/swagger
+ @nestjs/typeorm
+ bcrypt
+ class-transformer
+ class-validator
+ helmet
+ mysql2
+ passport
+ passport-jwt
+ passport-local
+ typeorm
+ ```
+
  * A API está em construçao
  * A versão de compilação do core NestJS é a **9.0.0**
  * Atualmente usamos o *NPM ou Yarn* script **start:dev** para dar manutenção no código.
@@ -71,7 +86,7 @@ Para rodar a aplicaçao instale o Docker em sua máquina e utilize o comando `do
 
 O Docker sobe os containers do NodeJS usando o NestJS como framework dependendo do serviço **db** que tem a imagem do MySQL para testarmos o funcionamento da API com a integraçao ao banco de dados.
 
-As variavéis de ambientes do MySQL se encontram no arquivo **docker-compose.yml**
+As variavéis de ambientes do MySQL se encontram na pasta **envs** localizada nas váriaveis de ambiente.
 </details>
 
  ---

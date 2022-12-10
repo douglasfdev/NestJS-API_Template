@@ -2,7 +2,8 @@ version: '3'
 
 services:
   app:
-    container_name: api-vdt-hub-b2b
+    container_name: api-nestjs-template
+    tty: true
     build: .
     volumes:
       - .:/home/node/app
@@ -17,16 +18,13 @@ services:
       - db
 
   db:
-    container_name: db-vdt-hub-b2b
+    container_name: db-nestjs-template
     image: mysql
     tty: true
     ports:
     - '3306:3306'
     restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=vdtch@m@d@taxista
-      - MYSQL_DATABASE=vdt_chamada_taxista
-      - MYSQL_USER=vdt_root
-      - MYSQL_PASSWORD=vdtch@m@d@taxista
+    env_file:
+      - ./src/common/envs/development.env
 volumes:
   db-data: {}
