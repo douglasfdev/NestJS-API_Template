@@ -18,9 +18,9 @@ export const typeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
     username: config.get('MYSQL_USER'),
     password: config.get('MYSQL_ROOT_PASSWORD'),
     migrations: ['dist/migrations/*.{ts,js}'],
+    entities: ['dist/entities/**/*{.js,.ts}'],
     logging: true,
-    synchronize: true, // never use TRUE in production!
-    autoLoadEntities: true,
+    synchronize: false, // never use TRUE in production!
   }),
   inject: [ConfigService],
 };
@@ -34,6 +34,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   password: process.env.MYSQL_ROOT_PASSWORD,
   migrations: ['dist/migrations/*.{ts,js}'],
   logging: true,
-  synchronize: true, // never use TRUE in production!
+  synchronize: false, // never use TRUE in production!
   autoLoadEntities: true,
 };
