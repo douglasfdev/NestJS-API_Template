@@ -1,7 +1,6 @@
-import { getEnvPath } from "@helpers/env.helper";
-import { config } from "dotenv";
-import { DataSource, DataSourceOptions } from "typeorm";
-
+import { getEnvPath } from '@helpers/env.helper';
+import { config } from 'dotenv';
+import { DataSource, DataSourceOptions } from 'typeorm';
 
 const envFilePath = getEnvPath(`${__dirname}/../common/envs`);
 config({ path: envFilePath });
