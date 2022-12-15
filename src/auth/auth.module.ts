@@ -10,6 +10,7 @@ import { LoginValidationMiddleware } from './middlewares/login-validation.middle
 import { ConfigModule } from '@nestjs/config';
 import { getEnvPath } from '@helpers/env.helper';
 import { jwtConfig } from '@configs/jwt.config';
+import { User } from 'src/user/entities/user.entity';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
@@ -21,7 +22,7 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
     JwtModule.registerAsync(jwtConfig),
   ],
   controllers: [AuthController],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy, User],
 })
 export class AuthModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

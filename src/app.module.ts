@@ -7,13 +7,13 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { typeOrmAsyncConfig } from './database/typeorm.config';
+import { TypeOrmConfigService } from './shared/typeorm/typeorm.service';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
 @Module({
   imports: [
-    TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
+    TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),
     ChamadaModule,
     ConfigModule.forRoot({ envFilePath, isGlobal: true, cache: true }),
     UserModule,

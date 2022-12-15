@@ -1,6 +1,5 @@
-import { User } from '../entities/user.entity';
+import { User } from '../../user/entities/user.entity';
 import {
-  IsDate,
   IsEmail,
   IsString,
   Matches,
@@ -8,7 +7,7 @@ import {
   MinLength,
 } from 'class-validator';
 
-export class CreateUserDto extends User {
+export class AuthDto extends User {
   @IsEmail()
   email: string;
 
@@ -22,7 +21,4 @@ export class CreateUserDto extends User {
 
   @IsString()
   name: string;
-
-  @IsDate()
-  lastLoginAt: Date;
 }

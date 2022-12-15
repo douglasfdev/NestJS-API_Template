@@ -5,12 +5,15 @@ export class User {
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @Column()
+  @Column({ type: 'varchar' })
   email: string;
 
-  @Column()
+  @Column({ type: 'varchar' })
   password: string;
 
-  @Column()
+  @Column({ type: 'varchar', nullable: true })
   name: string;
+
+  @Column({ type: 'timestamp', nullable: true, default: null })
+  lastLoginAt: Date | null;
 }

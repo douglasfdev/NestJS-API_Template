@@ -11,11 +11,11 @@ import { LocalAuthGuard } from './guards/local-auth.guard';
 import { AuthRequest } from './models/AuthRequest';
 import { IsPublic } from './decorators/is-public.decorator';
 
+@IsPublic()
 @Controller('v1')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @IsPublic()
   @UseGuards(LocalAuthGuard)
   @Post('login')
   @HttpCode(HttpStatus.OK)

@@ -2,11 +2,14 @@ import { NestFactory } from '@nestjs/core';
 import helmet from 'helmet';
 import { AppModule } from './app.module';
 import { setupSwagger } from './docs/swagger.config';
-// import { basicAuth } from './auth/basic.auth';
 import { ValidationPipe } from '@nestjs/common';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { ConfigService } from '@nestjs/config';
 
 (async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app: NestExpressApplication = await NestFactory.create(AppModule);
+  const config: ConfigService = app.get(ConfigService);
+  const port: number = config.get<number>('PORT');
 
   app.enableCors();
 
@@ -22,7 +25,7 @@ import { ValidationPipe } from '@nestjs/common';
 
   setupSwagger(app);
 
-  // app.use(basicAuth);
-
-  await app.listen(5555);
+  await app.listen(port, () => {
+    console.log('[WEB]', `http://localhost:${port}`);
+  });
 })();
