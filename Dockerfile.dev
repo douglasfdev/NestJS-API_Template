@@ -15,10 +15,8 @@ RUN npm install
 # Copy current directory to APP folder
 COPY . /home/node/app/
 
-CMD ["npm", "run", "start:dev"]
-
 EXPOSE 5555
 
-ENV NODE_ENV=production
-RUN npm run build
-CMD node dist/main.js
+ENV NODE_ENV=development
+
+CMD ["npm", "run", "start:dev"]
